@@ -1,0 +1,319 @@
+html {
+  height: 100%;
+  -webkit-text-size-adjust: 100%; }
+
+body {
+  overflow: hidden;
+  background: white;
+  color: black;
+  font: 75% Helvetica, Tahoma, Verdana;
+  margin: 0; }
+
+div#toolbar {
+  width: 100%;
+  height: 39px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background-color: black; }
+
+  div#toolbar > * {
+    cursor: pointer;
+    width: 35px;
+    height: 35px;
+    background-position: center center;
+    background-repeat: no-repeat; }
+
+  div#toolbar > *.disabled {
+    opacity: 0.30; }
+
+  div#toolbar > div#toolbar-separator {
+    height: 35px;
+    width: 9px; }
+
+  div#toolbar > div#toolbar-add {
+    background-image: url("../images/toolbar-add.svg"); }
+  div#toolbar > div#toolbar-remove {
+    background-image: url("../images/toolbar-remove.svg"); }
+  div#toolbar > div#toolbar-start {
+    background-image: url("../images/toolbar-start.svg"); }
+  div#toolbar > div#toolbar-pause {
+    background-image: url("../images/toolbar-pause.svg"); }
+
+  div#toolbar > div#toolbar-speed {
+    background-image: url("../images/toolbar-speed-fast.svg"); }
+  div#toolbar > div#toolbar-speed:active, div#toolbar > div#toolbar-speed.selected {
+    background-image: url("../images/toolbar-speed-slow.svg"); }
+
+div#statusbar {
+  cursor: default;
+  width: 100%;
+  height: 19px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background-color: black; }
+
+  div#statusbar > div#speed-dn-icon {
+    width: 24px;
+    height: 14px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background: url("../images/statusbar-down.svg"); }
+
+  div#statusbar > div#speed-up-icon {
+    width: 24px;
+    height: 14px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background: url("../images/statusbar-up.svg"); }
+
+div#torrent-container {
+  position: fixed;
+  top: 58px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  padding: 0px;
+  margin: 0px;
+  overflow: auto; }
+
+ul.torrent-list {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+  cursor: pointer; }
+
+  ul.torrent-list li.torrent {
+    border-bottom: 1px solid #ccc;
+    padding: 15px 55px 15px 20px; }
+
+    ul.torrent-list li.torrent.selected {
+      background-color: lavender; }
+
+    ul.torrent-list li.torrent div.torrent-name {
+      font-size: 1.3em;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      color: black;
+      margin-top: 2px;
+      margin-bottom: 2px; }
+
+    ul.torrent-list li.torrent div.torrent-progress {
+      height: 15px;
+      clear: left;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap; }
+
+    ul.torrent-list li.torrent div.torrent-progress.error {
+      height: 15px;
+      color: red; }
+
+    ul.torrent-list li.torrent.selected div.torrent-progress.error {
+      height: 15px;
+      color: red; }
+
+  ul.torrent-list div.torrent-progressbar-container {
+    height: 3px;
+    margin: 3px 3px 3px 0px;
+    position: relative; }
+
+    ul.torrent-list div.torrent-progressbar-container.full {
+
+      }
+
+  ul.torrent-list div.torrent-progressbar {
+    height: 100%;
+    position: absolute; }
+
+    ul.torrent-list div.torrent-progressbar.incomplete {
+      z-index: 1; 
+      width: 100%; }
+
+    ul.torrent-list div.torrent-progressbar.incomplete.paused {
+      background-color: steelblue; }
+
+    ul.torrent-list div.torrent-progressbar.incomplete.magnet {
+      background-color: steelblue; }
+
+    ul.torrent-list div.torrent-progressbar.incomplete.leeching {
+      background-color: deepskyblue; }
+
+    ul.torrent-list div.torrent-progressbar.incomplete.leeching.queued {
+      background-color: deepskyblue; }
+
+    ul.torrent-list div.torrent-progressbar.incomplete.seeding {
+      background-color: lime; }
+
+    ul.torrent-list div.torrent-progressbar.complete {
+      z-index: 2; }
+
+    ul.torrent-list div.torrent-progressbar.complete.paused {
+      background-color: deepskyblue; }
+
+    ul.torrent-list div.torrent-progressbar.complete.magnet {
+      background-color: deepskyblue; }
+
+    ul.torrent-list div.torrent-progressbar.complete.leeching {
+      background-color: lime; }
+
+    ul.torrent-list div.torrent-progressbar.complete.leeching.queued {
+      background-color: lime; }
+
+    ul.torrent-list div.torrent-progressbar.complete.seeding {
+      background-color: limegreen; }
+
+    ul.torrent-list div.torrent-progressbar.complete.seeding.queued {
+      background-color: lime; }
+
+    ul.torrent-list li.torrent div.torrent-peers {
+      height: 15px;
+      clear: left;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap; }
+
+    ul.torrent-list li.torrent div.torrent-peers.error {
+      height: 15px;
+      color: red; }
+
+    ul.torrent-list li.torrent.selected div.torrent-peers.error {
+      height: 15px;
+      color: red; }
+
+    ul.torrent-list li.torrent a {
+      float: right;
+      position: relative;
+      right: -40px;
+      top: -25px; }
+
+      ul.torrent-list li.torrent a div {
+        height: 35px;
+        width: 35px; }
+
+      ul.torrent-list li.torrent a div.torrent-pause {
+        background: url("../images/torrent-pause.svg"); }
+
+      ul.torrent-list li.torrent a div.torrent-resume {
+        background: url("../images/torrent-start.svg"); }
+
+      ul.torrent-list li.torrent a:active div.torrent-pause {
+        }
+
+      ul.torrent-list li.torrent a:active div.torrent-resume {
+        }
+
+      ul.torrent-list li.torrent a:hover div.torrent-pause {
+        }
+
+      ul.torrent-list li.torrent a:hover div.torrent-resume {
+        }
+
+div.confirm-box-container {
+  position: absolute;
+  display: none;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  color: black; }
+
+div.confirm-box-container div.confirm-box-window {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 315px;
+  padding: 20px 30px;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  background-color: white;
+  color: black;
+  overflow: hidden;
+  font-size: 1.2em; }
+
+div.confirm-box-container div.confirm-box-window div.confirm-box-title {
+  float: center;
+  margin: 10px 0px;
+  overflow: hidden; }
+
+div.confirm-box-container div.confirm-box-window div.confirm-box-message {
+  float: center;
+  margin: 10px 0px;
+  overflow: hidden; }
+
+div.confirm-box-container div.confirm-box-window a {
+  display: block;
+  float: right;
+  margin: 0px 5px;
+  padding: 5px;
+  width: 90px;
+  height: 15px;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  text-decoration: none;
+  text-align: center;
+  cursor: default;
+  color: grey; }
+
+div.upload-box-container {
+  position: absolute;
+  display: none;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  color: black; }
+
+div.upload-box-container div.upload-box-window {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 315px;
+  padding: 20px 30px;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  background-color: white;
+  color: black;
+  overflow: hidden;
+  font-size: 1.2em; }
+
+div.upload-box-container div.upload-box-window div.upload-box-title {
+  float: center;
+  margin: 10px 0px;
+  overflow: hidden; }
+
+div.upload-box-container div.upload-box-window div.upload-box-message {
+  float: center;
+  margin: 10px 0px;
+  overflow: hidden; }
+
+div.upload-box-container div.upload-box-window div.upload-box-message label {
+  display: block;
+  width: 100%;
+  margin: 10px 0px; }
+
+div.upload-box-container div.upload-box-window div.upload-box-message input {
+  display: block;
+  width: 100%;
+  margin: 5px 0px; }
+
+div.upload-box-container div.upload-box-window a {
+  display: block;
+  float: right;
+  margin: 0px 5px;
+  padding: 5px;
+  width: 90px;
+  height: 15px;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  text-decoration: none;
+  text-align: center;
+  cursor: default;
+  color: grey; }

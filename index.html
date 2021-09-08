@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <title>Transmission Web Interface</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+
+    <link rel="icon" href="./images/favicon.ico" />
+    <link rel="shortcut icon" href="./images/favicon.png" />
+    <link rel="apple-touch-icon" href="./images/favicon.png"/>
+
+    <link rel="stylesheet" href="./style/transmission.css" type="text/css" media="all" />
+
+    <script type="text/javascript" src="./javascript/remote.js"></script>
+    <script type="text/javascript" src="./javascript/torrent.js"></script>
+    <script type="text/javascript" src="./javascript/row.js"></script>
+    <script type="text/javascript" src="./javascript/confirmbox.js"></script>
+    <script type="text/javascript" src="./javascript/transmission.js"></script>
+
+  </head>
+  <body>
+
+    <div id="toolbar">
+      <div id="toolbar-add" title="Add Torrent"></div>
+      <div id="toolbar-remove" title="Remove Selected Torrent"></div>
+      <div id="toolbar-separator"></div>
+      <div id="toolbar-start" title="Start All Torrent"></div>
+      <div id="toolbar-pause" title="Pause All Torrent"></div>
+      <div id="toolbar-separator"></div>
+      <div id="toolbar-speed" title="Alternative Speed Limits"></div>
+    </div>
+
+    <div id="statusbar">
+      <div id='speed-dn-icon'></div>
+      <div id='speed-dn-label'></div>
+      <div id='speed-up-icon'></div>
+      <div id='speed-up-label'></div>
+    </div>
+
+    <div id="torrent-container">
+      <ul class="torrent-list" id="torrent-list"></ul>
+    </div>
+
+    <div class="confirm-box-container" id="confirm-box-container">
+      <div class="confirm-box-window" id="confirm-box-window">
+        <div class="confirm-box-title" id="confirm-box-title"></div>
+        <div class="confirm-box-message" id="confirm-box-message"></div>
+        <a href="#confirm" id="confirm-box-confirm">Confirm</a>
+        <a href="#cancel" id="confirm-box-cancel">Cancel</a>
+      </div>
+    </div>
+
+    <div class="upload-box-container" id="upload-box-container">
+      <div class="upload-box-window" id="upload-box-window">
+        <div class="upload-box-title">Upload Torrent Files</div>
+          <div class="upload-box-message">
+            <label for="torrent-upload-file">Torrent file to upload:</label>
+            <input type="file" name="torrent-files[]" id="torrent-upload-file"
+                multiple="multiple" />
+            <label for="torrent-upload-url">Magnetic link to upload:</label>
+            <input type="url" id="torrent-upload-url"/>
+          </div>
+          <a href="#upload" id="upload-box-confirm">Upload</a>
+          <a href="#cancel" id="upload-box-cancel">Cancel</a>
+      </div>
+    </div>
+
+  </body>
+</html>
