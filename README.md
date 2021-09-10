@@ -1,2 +1,2 @@
 # minimalistic-transmission-web-interface
-Minimalistic Transmission Web Interface
+minimalistic transmission web interface
