@@ -1,2 +1,2 @@
-# minimalistic-transmission-web-interface
+# shifter
 minimalistic transmission web interface
