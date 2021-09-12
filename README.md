@@ -1,2 +1,2 @@
 # Shifter
-minimalistic transmission web interface
+Minimalistic Transmission Web Interface written in vanilla java.
